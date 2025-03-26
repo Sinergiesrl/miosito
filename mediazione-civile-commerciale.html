@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediazione Civile e Commerciale- Sinergie Srl</title>
+    <style>
+        /* Stile generale */
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffdd57;
+            background: url('sfondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Evita overflow globale */
+        }
+
+        /* Barra di navigazione */
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Contenitore della navigazione */
+        nav {
+            position: absolute;
+            bottom: 5px;
+            right: 20px;
+        }
+
+        /* Lista dei pulsanti */
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffdd57;
+            padding: 5px 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffdd57;
+            color: #333;
+        }
+
+        /* Layout con colonna dei servizi fissa */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            padding: 80px 20px; /* Distanza dal top per la navbar */
+            align-items: flex-start;
+            height: 100vh;
+            position: relative;
+            overflow-y: auto; /* Consente solo lo scroll del contenuto */
+        }
+
+        /* Colonna dei servizi (a sinistra) fissa */
+        aside {
+            width: 240px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0px;
+            position: fixed;
+            top: 65px; /* Per evitare che si sovrapponga alla barra di navigazione */
+            left: 0;
+            height: calc(100vh - 50px); /* Spazio per la navbar */
+            overflow-y: auto;
+            z-index: 2;
+        }
+
+/* Titoli e sottotitoli nella sezione "I Nostri Servizi" */
+aside h2 {
+    font-size: 2.0em; /* Dimensione regolata per il titolo principale */
+    font-weight: bold;
+    text-align: center;
+
+}
+
+aside h3 {
+    font-size: 1.5em; /* Dimensione regolata per i sottotitoli */
+    font-weight: normal;
+    margin-top: 15px;
+}
+aside h2 {
+    text-align: center;
+    color: #FFD700; /* Oro */
+margin-bottom: 30px; /* Aggiunge spazio sotto il titolo */
+}
+        .servizi-principali {
+            color: cyan;
+            padding-left: 30px;
+        }
+
+        .servizi-complementari {
+            color: lime;
+            padding-left: 30px;
+        }
+
+        aside ul li {
+            margin: 10px 0;
+        }
+
+        aside ul li a {
+            text-decoration: none;
+            color: #ffdd57;
+            padding: 5px 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        aside ul li a:hover {
+            background-color: #ffdd57;
+            color: #333;
+        }
+
+        /* Contenitore principale che occupa tutta la pagina senza scorrimento */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Altezza fissa alla viewport */
+    overflow: hidden; /* Impedisce lo scrolling */
+    margin-left: 260px; /* Spazio per la colonna dei servizi */
+    padding: 20px;
+    flex-grow: 1;
+}
+
+
+        /* Contenuto centrato */
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        /* Logo fisso */
+        .logo-container {
+            position: fixed;
+            top: 60%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+/* Scritta che scorre */
+
+.scrolling-text {
+    line-height: 2; /* Aumenta lo spazio tra le righe */
+    margin-bottom: 20px; /* Aggiunge spazio sotto ogni paragrafo */
+    position: relative;
+    z-index: 2;
+    padding-bottom: 100px; /* Spazio per la barra di scorrimento */
+    font-size: 1.5em; /* Imposta la dimensione del carattere */
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 0 auto;
+    width: 100%;
+    letter-spacing: 2px; /* Aggiungi la spaziatura tra i caratteri */    
+    text-align: justify; /* Aggiungi questa linea per giustificare il testo */
+    padding-left: 0px; /* Aggiungi margine a sinistra se necessario per spostare ancora di più il testo */
+}
+
+/* Titolo principale */
+
+h1 {
+    font-size: 2em; /* Mantieni la dimensione */
+    color:#32CD32; /* Mantieni il colore */
+    text-align: center; /* Mantieni il centramento */
+    margin-top: 10px; /* Riduci lo spazio sopra il titolo */
+    
+    line-height: 1.0; /* Riduci l'altezza della linea */
+margin-bottom: 40px; /* Aggiunge spazio sotto ogni h1 */
+
+    
+}
+
+/* Sottotitolo di livello 2 */
+h2 {
+    font-size: 1em; /* Dimensione media per i sottotitoli */
+    color: #32CD32;/* Colore del sottotitolo */
+    text-align: left; /* Allinea il sottotitolo a sinistra */
+    margin-bottom: 15px; /* Spazio sotto il sottotitolo */
+}
+
+/* Sottotitolo di livello 3 */
+h3 {
+    font-size: 1.5em; /* Dimensione per un altro livello di sottotitolo */
+    color:#ffdd57; /* Colore del sottotitolo */
+    text-align: left; /* Allinea il sottotitolo a sinistra */
+    margin-bottom: 10px; /* Spazio sotto il sottotitolo */
+}
+h4 {
+    font-size: 1.5em; /* Mantieni la dimensione */
+    color:#32CD32; /* Mantieni il colore */
+    text-align: center; /* Mantieni il centramento */
+    margin-top: 10px; /* Riduci lo spazio sopra il titolo */
+    
+    line-height: 1.0; /* Riduci l'altezza della linea */
+margin-bottom: 40px; /* Aggiunge spazio sotto ogni h1 */
+
+    
+}
+
+h5 {
+    font-size: 1em; /* Mantieni la dimensione */
+    color:#32CD32; /* Mantieni il colore */
+    text-align: center; /* Mantieni il centramento */
+    margin-top: 10px; /* Riduci lo spazio sopra il titolo */
+    
+    line-height: 1.0; /* Riduci l'altezza della linea */
+margin-bottom: 40px; /* Aggiunge spazio sotto ogni h1 */
+}
+
+h6 {
+    font-size: 1em; /* Mantieni la dimensione */
+    color:#32CD32; /* Mantieni il colore */
+    text-align: center; /* Mantieni il centramento */
+    margin-top: 10px; /* Riduci lo spazio sopra il titolo */
+    
+    line-height: 1.0; /* Riduci l'altezza della linea */
+margin-bottom: 40px; /* Aggiunge spazio sotto ogni h1 */
+}
+
+/* Responsività mobile */
+@media (max-width: 768px) {
+    .scrolling-text {
+        font-size: 1.5em; /* Riduce la dimensione del carattere su dispositivi mobili */
+        letter-spacing: 0.5px; /* Riduce la spaziatura tra i caratteri su dispositivi mobili */
+    }
+}
+
+        
+/* Footer all'interno della sezione che scorre */
+.footer {
+background: rgba(0, 0, 0, 0.7);
+        color: white;
+    text-align: center;
+    padding: 0px;
+    width: 45%; /* Puoi cambiare questa percentuale per regolare la larghezza */
+    position: relative; /* Permette di scorrere con il contenuto */
+    margin: 150px auto 0; /* Margin-top per distanziare dal contenuto sopra, 'auto' per centrare orizzontalmente */
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.5em; /* Riduce la dimensione del testo */
+}
+
+        /* Responsività mobile */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .scrolling-text {
+                font-size: 1.5em;
+            }
+
+            .footer {
+                font-size: 0.8em;
+            }
+
+            aside {
+                position: relative;
+                height: auto;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 10px;
+                top: 0;
+            }
+
+            .logo-container {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0.5;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra di navigazione -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="link-utili.html">Link Utili</a></li>
+                <li><a href="index.html#contatti">Contatti</a></li>
+                <li><a href="index.html#mappa">Mappa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenitore principale per il layout -->
+    <main class="main-container">
+        <!-- Colonna dei servizi (a sinistra) fissa -->
+        <aside>
+            <h2>I Nostri Servizi</h2>
+            <h3 class="servizi-principali">Servizi Principali</h3>
+            <ul>
+                <li><a href="fractional-management.html" class="servizio-link">Fractional-Management</a></li>
+                <li><a href="contabilita-paghe.html" class="servizio-link">Gestione Contabilità e Paghe</a></li>
+                <li><a href="budget-costo-personale.html" class="servizio-link">Gestione Contabilità e Paghe</a></li>
+
+            </ul>
+            <h3 class="servizi-complementari">Servizi Complementari</h3>
+            <ul>
+                <li><a href="gestione-relazioni-industriali.html" class="servizio-link">Gestione delle Relazioni Industriali</a></li>
+                <li><a href="assistenza-legale.html" class="servizio-link">Assistenza Legale</a></li>
+                
+            </ul>
+        </aside>
+
+        <!-- Sezione contenuti centrati -->
+        <div class="main-content">
+            <div class="content-container">
+                <!-- Logo fisso -->
+                <div class="logo-container">
+                    <img src="images/logo-sinergie.jpg" alt="Logo Sinergie" />
+                </div>
+                <!-- Scritta che scorre -->
+                <div class="scrolling-text">
+                    <h1>Mediazione Civile e Commerciale</h1>
+                    <p class="titolo-mediazione-civile">La mediazione civile e commerciale rappresenta uno strumento efficace, rapido ed economico per la risoluzione delle controversie tra privati e imprese, evitando il ricorso alle lunghe e onerose procedure giudiziarie. Ciò che distingue Sinergie Srl dagli altri fornitori di servizi di mediazione è l’elevato livello di competenza, l'approccio personalizzato e la capacità di gestire le controversie con la massima efficienza. La nostra esperienza e l’uso di tecnologie innovative garantiscono un servizio di alta qualità, progettato per facilitare soluzioni rapide e vantaggiose per tutte le parti coinvolte. Sinergie Srl offre un servizio di mediazione altamente professionale, conforme alla normativa vigente (D.Lgs. 28/2010 e successive modifiche), garantendo imparzialità, riservatezza ed efficienza nell’interesse delle parti coinvolte. Grazie alla nostra esperienza e competenza, accompagniamo le parti in ogni fase del procedimento, facilitando il raggiungimento di accordi vantaggiosi e duraturi.</p>
+                      <h4>Cos’è la Mediazione Civile e Commerciale?</h2>                  
+                    <p class="titolo-mediazione-civile">La mediazione è un procedimento stragiudiziale volto a trovare un accordo tra le parti in conflitto con l’ausilio di un mediatore imparziale e qualificato. L’obiettivo è facilitare il dialogo e raggiungere una soluzione condivisa e soddisfacente per entrambe le parti, riducendo tempi e costi rispetto al contenzioso tradizionale.</p>
+
+                  <h4>Vantaggi della Mediazione</h4>
+<p class="titolo-mediazione-civile">La mediazione civile e commerciale offre un'alternativa rapida, economica e riservata al contenzioso giudiziario, consentendo di risolvere le controversie in modo flessibile ed efficace. Grazie all'intervento di un mediatore imparziale, le parti possono trovare soluzioni condivise senza affrontare i costi e i tempi di un processo tradizionale, preservando al contempo le relazioni personali e professionali.</p>
+                    <ul>
+                        <li>Rapidità: Il procedimento ha una durata limitata nel tempo (massimo 90 giorni), molto inferiore rispetto ai lunghi iter giudiziari.</li>
+                        <li>Economicità: I costi della mediazione sono notevolmente inferiori rispetto a quelli di un processo, rendendola una soluzione accessibile.</li>
+                        <li>Riservatezza: Le informazioni trattate in mediazione sono coperte da segreto professionale e non possono essere divulgate né utilizzate in eventuali procedimenti giudiziari.</li>
+                        <li>Flessibilità: Le parti mantengono il pieno controllo sulle soluzioni da adottare e sulla definizione dell’accordo.</li>
+                        <li>Efficacia: L’accordo raggiunto, se omologato dal tribunale, ha valore di titolo esecutivo, garantendo la sua applicabilità.</li>
+                        <li>Mantenimento delle relazioni: La mediazione aiuta a preservare rapporti personali e commerciali, riducendo il conflitto e favorendo la cooperazione futura.</li>
+                    </ul>
+                    <h4>Ambiti di Applicazione</h4>
+                    <p class="titolo-mediazione-civile">Sinergie Srl fornisce assistenza in un’ampia gamma di controversie civili e commerciali, tra cui:</p>
+                    <ul>
+                    <li>Diritti reali (proprietà, usufrutto, servitù, confini)</li>
+                       <li>Condominio e locazioni (dispute tra inquilini e proprietari, regolamenti condominiali)</li>
+                       <li>Successioni ereditarie (divisione patrimoniale tra eredi)</li>
+                     <li>Contratti bancari e finanziari (controversie con istituti di credito e intermediari finanziari)</li>
+                     <li>Risarcimento danni (da responsabilità medica, sinistri stradali, diffamazione)</li>
+                      <li>Contratti commerciali (forniture, appalti, franchising, distribuzione, partnership)</li>
+                      <li>Liti tra soci e imprese (conflitti tra azionisti, controversie societarie)</li>
+                      <li>Controversie nel settore assicurativo (dispute su indennizzi e polizze)</li>
+                      <li>Questioni lavorative e sindacali (rapporti di lavoro, contratti collettivi, controversie tra dipendenti e datori di lavoro)</li>
+                      <h4>Il Ruolo del Mediatore</h4>
+                     <p class="titolo-mediazione-civile">I mediatori di Sinergie Srl sono professionisti altamente qualificati, iscritti agli organismi di mediazione accreditati presso il Ministero della Giustizia. Il loro compito è agevolare il confronto tra le parti, aiutandole a trovare una soluzione condivisa e vantaggiosa, senza imporre decisioni. Grazie alla loro competenza e neutralità, creano un ambiente costruttivo in cui il dialogo è incentivato e le parti possono giungere autonomamente a un accordo soddisfacente.</p>
+                      <p class="titolo-mediazione-civile">I mediatori di Sinergie Srl sono professionisti altamente qualificati, iscritti agli organismi di mediazione accreditati presso il Ministero della Giustizia. Il loro compito è agevolare il confronto tra le parti, aiutandole a trovare una soluzione condivisa e vantaggiosa, senza imporre decisioni. Grazie alla loro competenza e neutralità, creano un ambiente costruttivo in cui il dialogo è incentivato e le parti possono giungere autonomamente a un accordo soddisfacente.</p>
+                      <h4>Come Funziona il Procedimento di Mediazione?</h4>
+                      
+                    <h2>1.	Presentazione della Domanda:</h2>
+                    <p> Una delle parti coinvolte presenta una richiesta di mediazione presso Sinergie Srl, specificando l’oggetto della controversia.<p/>
+                    <h2>2.	Convocazione delle Parti: </h2>
+                    <p> Entro 30 giorni dalla richiesta, viene fissato un incontro alla presenza del mediatore.<p/>
+                    <h2>3.	Svolgimento degli Incontri: </h2>
+                    <p> Le parti esprimono le loro posizioni e cercano un accordo con l’ausilio del mediatore.<p/>
+                    <h2>4.	Raggiungimento dell’Accordo: </h2>
+                    <p> Se si trova un’intesa, l’accordo viene formalizzato e può essere omologato dal tribunale per acquisire valore esecutivo.<p/>
+                    <h2>5.	Chiusura del Procedimento:</h2>
+                   <p> Se l’accordo non viene raggiunto, le parti possono ricorrere ad altre vie legali o tentare un’ulteriore negoziazione.<p/>
+                        <h4>Perché Scegliere Sinergie Srl?</h4>
+                        <h2>Sinergie Srl si distingue per:</h2>
+                    <ul>
+                        <li>Competenza e Professionalità: Mediatori esperti con formazione specifica e costante aggiornamento normativo.</li>
+                        <li>Approccio Personalizzato: Ogni caso viene trattato con attenzione alle specifiche esigenze delle parti, garantendo un servizio su misura.</li>
+                        <li>Strutture Accoglienti e Tecnologie Innovative: Mediazioni in presenza e online per la massima comodità e accessibilità.</li>
+                        <li>Assistenza Completa: Supporto continuo durante tutto il percorso di mediazione, dalla prima consulenza fino alla formalizzazione dell’accordo.</li>
+                        <li>Trasparenza nei Costi: Tariffe chiare e competitive, senza sorprese.</li>
+                    </ul>
+                    
+                    <p class="titolo-mediazione-civile">Affidarsi alla mediazione significa scegliere un metodo alternativo, intelligente ed efficace per risolvere le controversie.</p>
+                    <h6>Contattaci oggi stesso per una consulenza gratuita!</h6>    
+                    </ul>            
+  <!-- Footer all'interno della sezione che scorre -->
+    <footer class="footer">
+        <p>&copy; 2025 Sinergie Srl - Tutti i diritti riservati</p>
+    </footer>
+</div>
+            </div>
+    </main>
+</body>
+</html>
