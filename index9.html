@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinergie Srl</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('images/foto.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffdd57;
+    }
+
+    /* Barra comandi fissa e visibile */
+    .barra-comandi {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6); /* Colore fumé */
+      z-index: 1000;
+      padding: 10px 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .barra-comandi ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .barra-comandi li {
+      display: inline;
+      margin: 0 20px;
+    }
+
+    .barra-comandi a {
+      color: #ffdd57;
+      text-decoration: none;
+    }
+
+    /* Sezione Benvenuto con sfondo fumé e centrata */
+    #benvenuto {
+      position: relative;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6); /* Sfondo fumé */
+      color: #ffdd57;
+      display: block;
+    }
+
+    /* Testo centrato orizzontalmente e verticalmente */
+    #benvenuto h2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      font-size: 2.5em;
+      z-index: 2;
+    }
+
+    /* Logo posizionato subito sotto la barra comandi e centrato orizzontalmente */
+    #benvenuto .logo {
+      position: absolute;
+      top: 65px; /* Regola in base all'altezza della barra comandi */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      max-width: 200px;
+    }
+
+    /* Sezione per la scritta sotto il logo */
+    #scritta-benv {
+      position: absolute;
+      top: 250px; /* Distanza dal logo */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+      color: #ffdd57;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #scritta-benv h3 {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #scritta-benv p {
+      font-size: 1.0em;
+      font-weight: bold;
+      color: #00ffff; /* Colore diverso per evidenziare i servizi */
+    }
+
+    #scritta-benv i {
+      font-size: 1.0em;
+      font-style: italic;
+      color: #9ACD32;
+    }
+
+    /* Sezioni Nascoste (Servizi, Contatti, Mappa) */
+    .section-container {
+      position: absolute;
+      top: 100px; /* Ben distanziata dalla barra */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      background: rgba(0, 0, 0, 0.6); /* Sfondo fumé */
+      padding: 80px;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+
+    /* Altri stili già presenti */
+    .servizi-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .colonna {
+      width: 45%;
+    }
+
+    .titolo-servizi {
+      color: #ffdd57;
+      font-size: 2.5em;
+    }
+
+    .titolo-principali {
+      color: #00ffff;
+      font-size: 2em;
+    }
+
+    .titolo-complementari {
+      color: #00ff00;
+      font-size: 2em;
+    }
+  /* Rimozione puntini dai tasti servizi */
+  #servizi ul {
+    list-style-type: none; /* Rimuove i puntini accanto ai tasti */
+    padding-left: 0; /* Evita spaziature indesiderate */
+    margin: 0;
+  }
+    .servizio-link {
+      color: #ffdd57;
+      font-size: 1.5em;
+      display: block;
+      margin-top: 20px;
+    }
+
+    /* Stili Contatti */
+    .titolo-contatti {
+      color: #00ffff;
+      font-size: 2.5em;
+    }
+
+    .section-container p {
+      color: #f8f8f8;
+      font-size: 1.2em;
+    }
+
+    .icona-contatti {
+      color: #ffdd57;
+      margin-right: 10px;
+    }
+
+    .link-contatti {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link-contatti:hover {
+      text-decoration: underline;
+    }
+
+    .titolo-mappa {
+      color: #ffdd57;
+      font-size: 2.5em;
+    }
+
+    /* Footer */
+    #footer {
+      width: 80%; /* Riduce l'ampiezza rispetto alla barra comandi */
+      max-width: 300px; /* Imposta una larghezza massima */
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%); /* Centra il footer */
+      border-radius: 10px; /* Opzionale, per bordi arrotondati */
+    }
+  </style>
+</head>
+<body>
+<!-- Barra di navigazione con menu hamburger -->
+  <header class="barra-comandi">
+    <div class="menu-toggle" id="menuToggle">
+      &#9776; <!-- Icona menu -->
+    </div>
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#" id="homeBtn">Home</a></li>
+        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+        <li><a href="link-utili.html">Link Utili</a></li>
+        <li><a href="#" id="serviziBtn">Servizi</a></li>
+        <li><a href="#contatti" id="contattiBtn">Contatti</a></li>
+        <li><a href="#mappa" id="mappaBtn">Mappa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sezione Logo e Benvenuto -->
+  <section id="benvenuto">
+    <img src="images/logo-sinergie.jpg" alt="Logo Sinergie Srl" class="logo">
+    <div id="scritta-benv">
+      <h3>Benvenuti in Sinergie Srl</h3>
+      <p>Fractional management, contabilità e relazioni industriali</p>
+      <i>Soluzioni integrate per la tua impresa.</i>
+    </div>
+  </section>
+
+  <!-- Sezione Servizi -->
+  <section id="servizi" class="section-container">
+    <h2 class="titolo-servizi">I Nostri Servizi</h2>
+    <div class="servizi-container">
+      <div class="colonna">
+        <h3 class="titolo-principali">Servizi Principali</h3>
+        <ul>
+          <li><a href="fractional-management.html" class="servizio-link">Fractional-Management</a></li>
+          <li><a href="budget-costo-personale.html" class="servizio-link">Redazione Budget Costo del Personale</a></li>
+          <a href="contabilita-paghe.html" class="servizio-link">Gestione Contabilità e Paghe</a>
+        </ul>
+      </div>
+      <div class="colonna">
+        <h3 class="titolo-complementari">Servizi Complementari</h3>
+        <ul>
+          <li><a href="gestione-relazioni-industriali.html" class="servizio-link">Gestione delle Relazioni industriali</a></li>
+          <li><a href="mediazione-civile-commerciale.html" class="servizio-link">Mediazione Civile e Commerciale</a></li>
+          <li><a href="assistenza-legale.html" class="servizio-link">Assistenza Legale</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione Contatti -->
+  <section id="contatti" class="section-container">
+    <h2 class="titolo-contatti">Contatti</h2>
+    <p>Indirizzo: Via Carlo Felice, 101 - 00185 Roma</p>
+    <p><span class="icona-contatti">📞</span>Telefono: <a href="tel:+393451234567" class="link-contatti">+39 345 1234567</a></p>
+    <p><span class="icona-contatti">✉️</span>Email: <a href="mailto:info@sinergie2srl.it" class="link-contatti">info@sinergie2srl.it</a></p>
+    <p>Visita il nostro <a href="http://www.sinergie2srl.it" class="link-contatti" target="_blank">sito web</a></p>
+  </section>
+
+  <!-- Sezione Mappa -->
+  <section id="mappa" class="section-container">
+    <h2 class="titolo-mappa">Come Raggiungerci</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p>&copy; 2025 Sinergie Srl. Tutti i diritti riservati.</p>
+  </footer>
+
+</body>
+</html>
