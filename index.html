@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sinergie Srl</title>
   <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('foto.jpg') no-repeat center center fixed;
+      background: url('images/foto.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #ffdd57;
     }
@@ -202,10 +203,12 @@ font-size: 2.5em;
   </style>
 </head>
 <body>
-
-  <!-- Barra comandi fissa -->
+<!-- Barra di navigazione con menu hamburger -->
   <header class="barra-comandi">
-    <nav>
+    <div class="menu-toggle" id="menuToggle">
+      &#9776; <!-- Icona menu -->
+    </div>
+    <nav id="navMenu">
       <ul>
         <li><a href="#" id="homeBtn">Home</a></li>
         <li><a href="chi-siamo.html">Chi Siamo</a></li>
@@ -219,7 +222,7 @@ font-size: 2.5em;
 
   <!-- Sezione Logo e Benvenuto -->
   <section id="benvenuto">
-    <img src="logo-sinergie.jpg" alt="Logo Sinergie Srl" class="logo">
+    <img src="images/logo-sinergie.jpg" alt="Logo Sinergie Srl" class="logo">
     <div id="scritta-benv">
       <h3>Benvenuti in Sinergie Srl</h3>
       <p>Fractional management, contabilità e relazioni industriali</p>
@@ -365,4 +368,3 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 </body>
 </html>
-
