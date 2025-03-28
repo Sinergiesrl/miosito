@@ -492,6 +492,5 @@ background: rgba(0, 0, 0, 0.7);
         menu.classList.toggle('active');
     }
 </script>
-
 </body>
 </html>
