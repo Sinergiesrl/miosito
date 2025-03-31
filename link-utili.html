@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Utili - Sinergie Srl</title>
+    <style>
+        /* Stile generale */
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffdd57;
+            background: url('sfondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Evita overflow globale */
+        }
+
+        /* Barra di navigazione */
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Contenitore della navigazione */
+        nav {
+            position: absolute;
+            bottom: 5px;
+            right: 20px;
+        }
+
+        /* Lista dei pulsanti */
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffdd57;
+            padding: 5px 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffdd57;
+            color: #333;
+        }
+
+        /* Layout con colonna dei servizi fissa */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            padding: 80px 20px; /* Distanza dal top per la navbar */
+            align-items: flex-start;
+            height: 100vh;
+            position: relative;
+            overflow-y: auto; /* Consente solo lo scroll del contenuto */
+        }
+
+        /* Colonna dei servizi (a sinistra) fissa */
+        aside {
+            width: 240px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0px;
+            position: fixed;
+            top: 65px; /* Per evitare che si sovrapponga alla barra di navigazione */
+            left: 0;
+            height: calc(100vh - 50px); /* Spazio per la navbar */
+            overflow-y: auto;
+            z-index: 2;
+        }
+
+/* Titoli e sottotitoli nella sezione "I Nostri Servizi" */
+aside h2 {
+    font-size: 2.0em; /* Dimensione regolata per il titolo principale */
+    font-weight: bold;
+    text-align: center;
+
+}
+
+aside h3 {
+    font-size: 1.5em; /* Dimensione regolata per i sottotitoli */
+    font-weight: normal;
+    margin-top: 15px;
+}
+aside h2 {
+    text-align: center;
+    color: #FFD700; /* Oro */
+margin-bottom: 30px; /* Aggiunge spazio sotto il titolo */
+}
+        .servizi-principali {
+            color: cyan;
+            padding-left: 30px;
+        }
+
+        .servizi-complementari {
+            color: lime;
+            padding-left: 30px;
+        }
+
+        aside ul li {
+            margin: 10px 0;
+        }
+
+        aside ul li a {
+            text-decoration: none;
+            color: #ffdd57;
+            padding: 5px 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        aside ul li a:hover {
+            background-color: #ffdd57;
+            color: #333;
+        }
+
+        /* Contenitore principale che occupa tutta la pagina senza scorrimento */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Altezza fissa alla viewport */
+    overflow: hidden; /* Impedisce lo scrolling */
+    margin-left: 260px; /* Spazio per la colonna dei servizi */
+    padding: 20px;
+    flex-grow: 1;
+}
+
+
+        /* Contenuto centrato */
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        /* Logo fisso */
+        .logo-container {
+            position: fixed;
+            top: 60%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+/* Scritta che scorre */
+
+.scrolling-text {
+    line-height: 2; /* Aumenta lo spazio tra le righe */
+    margin-bottom: 20px; /* Aggiunge spazio sotto ogni paragrafo */
+    position: relative;
+    z-index: 2;
+    padding-bottom: 100px; /* Spazio per la barra di scorrimento */
+    font-size: 1.5em; /* Imposta la dimensione del carattere */
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    max-height: 80vh;
+    overflow-y: auto;
+    margin: 0 auto;
+    width: 100%;
+    letter-spacing: 2px; /* Aggiungi la spaziatura tra i caratteri */    
+    text-align: justify; /* Aggiungi questa linea per giustificare il testo */
+    padding-left: 0px; /* Aggiungi margine a sinistra se necessario per spostare ancora di più il testo */
+}
+
+/* Titolo principale */
+
+h1 {
+    font-size: 2em; /* Mantieni la dimensione */
+    color:#F4A460; /* Mantieni il colore */
+    text-align: center; /* Mantieni il centramento */
+    margin-top: 10px; /* Riduci lo spazio sopra il titolo */
+    
+    line-height: 1.0; /* Riduci l'altezza della linea */
+margin-bottom: 40px; /* Aggiunge spazio sotto ogni h1 */
+
+    
+}
+
+/* Sottotitolo di livello 2 */
+h2 {
+    font-size: 1.5em; /* Dimensione media per i sottotitoli */
+    color: #F4A460; /* Colore del sottotitolo */
+    text-align: left; /* Allinea il sottotitolo a sinistra */
+    margin-bottom: 15px; /* Spazio sotto il sottotitolo */
+}
+
+/* Sottotitolo di livello 3 */
+h3 {
+    font-size: 2em; /* Dimensione per un altro livello di sottotitolo */
+    color:#ffdd57; /* Colore del sottotitolo */
+    text-align: left; /* Allinea il sottotitolo a sinistra */
+    margin-bottom: 10px; /* Spazio sotto il sottotitolo */
+}
+h4 {
+    font-size: 1.1em; /* Mantieni la dimensione */
+    color:#F4A460; /* Mantieni il colore */
+    text-align: center; /* Mantieni il centramento */
+    margin-top: 10px; /* Riduci lo spazio sopra il titolo */
+    
+    line-height: 1.0; /* Riduci l'altezza della linea */
+margin-bottom: 40px; /* Aggiunge spazio sotto ogni h1 */
+
+    
+}
+
+h5 {
+    font-size: 1.5em; /* Mantieni la dimensione */
+    color:#F4A460; /* Mantieni il colore */
+    text-align: center; /* Mantieni il centramento */
+    margin-top: 10px; /* Riduci lo spazio sopra il titolo */
+    
+    line-height: 1.0; /* Riduci l'altezza della linea */
+margin-bottom: 40px; /* Aggiunge spazio sotto ogni h1 */
+
+    
+}
+
+
+/* Responsività mobile */
+@media (max-width: 768px) {
+    .scrolling-text {
+        font-size: 1.5em; /* Riduce la dimensione del carattere su dispositivi mobili */
+        letter-spacing: 0.5px; /* Riduce la spaziatura tra i caratteri su dispositivi mobili */
+    }
+}
+
+        
+/* Footer all'interno della sezione che scorre */
+.footer {
+background: rgba(0, 0, 0, 0.7);
+        color: white;
+    text-align: center;
+    padding: 0px;
+    width: 45%; /* Puoi cambiare questa percentuale per regolare la larghezza */
+    position: relative; /* Permette di scorrere con il contenuto */
+    margin: 150px auto 0; /* Margin-top per distanziare dal contenuto sopra, 'auto' per centrare orizzontalmente */
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.5em; /* Riduce la dimensione del testo */
+}
+
+
+
+
+        /* Responsività mobile */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .scrolling-text {
+                font-size: 1.5em;
+            }
+
+            .footer {
+                font-size: 0.8em;
+            }
+
+            aside {
+                position: relative;
+                height: auto;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 10px;
+                top: 0;
+            }
+
+            .logo-container {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0.5;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra di navigazione -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="link-utili.html">Link Utili</a></li>
+                <li><a href="index.html#contatti">Contatti</a></li>
+                <li><a href="index.html#mappa">Mappa</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenitore principale per il layout -->
+    <main class="main-container">
+        <!-- Colonna dei servizi (a sinistra) fissa -->
+        <aside>
+            <h2>I Nostri Servizi</h2>
+            <h3 class="servizi-principali">Servizi Principali</h3>
+            <ul>
+                <li><a href="fractional-management.html" class="servizio-link">Fractional Management</a></li>
+                <li><a href="contabilita-paghe.html" class="servizio-link">Gestione Contabilità e Paghe</a></li>
+                <li><a href="budget-costo-personale.html" class="servizio-link">Redazione Budget Costo del Personale</a></li>
+            </ul>
+            <h3 class="servizi-complementari">Servizi Complementari</h3>
+            <ul>
+                <li><a href="gestione-relazioni-industriali.html" class="servizio-link">Gestione delle Relazioni industriali</a></li>
+                <li><a href="mediazione-civile-commerciale.html" class="servizio-link">Mediazione Civile e Commerciale</a></li>
+                <li><a href="assistenza-legale.html" class="servizio-link">Assistenza Legale</a></li>
+            </ul>
+        </aside>
+
+        <!-- Sezione contenuti centrati -->
+        <div class="main-content">
+            <div class="content-container">
+                <!-- Logo fisso -->
+                <div class="logo-container">
+                    <img src="images/logo-sinergie.jpg" alt="Logo Sinergie" />
+                </div>
+                <!-- Scritta che scorre -->
+                <div class="scrolling-text">
+                    <h1>Link Utili</h1>
+                    <p>Benvenuti nella nostra sezione dei link utili, dove troverete una selezione di risorse online fondamentali per la gestione aziendale, la normativa vigente e la consulenza fiscale. Questa pagina è pensata per aiutare imprenditori, professionisti e dipendenti a navigare tra le principali piattaforme e servizi legati al mondo del lavoro e dell'impresa.</p>
+
+    
+    <h2 class="category">Enti e Istituzioni</h2>
+      
+        <ul>
+            <li><a href="https://www.agenziaentrate.gov.it" target="_blank">Agenzia delle Entrate</a></li>
+            <li><a href="https://www.inps.it" target="_blank">INPS - Istituto Nazionale Previdenza Sociale</a></li>
+            <li><a href="https://www.inail.it" target="_blank">INAIL - Assicurazione contro Infortuni sul Lavoro</a></li>
+            <li><a href="https://www.cliclavoro.gov.it" target="_blank">Cliclavoro - Portale del Ministero del Lavoro</a></li>
+            <li><a href="https://www.confindustria.it" target="_blank">Confindustria</a></li>
+            <li><a href="https://www.cnel.it" target="_blank">CNEL - Consiglio Nazionale dell'Economia e del Lavoro</a></li>
+            <li><a href="https://www.unioncamere.gov.it" target="_blank">Unioncamere - Camere di Commercio Italiane</a></li>
+            <li><a href="https://www.gazzettaufficiale.it" target="_blank">Gazzetta Ufficiale</a></li>
+            <li><a href="https://www.assolombarda.it" target="_blank">Assolombarda</a></li>
+        </ul>
+        
+        
+        <h2 class="category">Normativa e Legislazione</h2>        
+        <ul>
+            <li><a href="https://www.normattiva.it" target="_blank">Normattiva - Portale della Legislazione Italiana</a></li>
+            <li><a href="https://www.altalex.com" target="_blank">Altalex - Aggiornamenti Legali</a></li>
+            <li><a href="https://www.brocardi.it" target="_blank">Brocardi - Codici e Leggi Italiane</a></li>
+        </ul>
+        
+        <h2 class="category">Fisco e Previdenza</h2>
+        
+        
+        <ul>
+            <li><a href="https://www.fiscooggi.it" target="_blank">FiscoOggi - Agenzia delle Entrate</a></li>
+            <li><a href="https://www.ipsoa.it" target="_blank">Ipsoa - Fisco e Lavoro</a></li>
+            <li><a href="https://www.lavoro.gov.it" target="_blank">Ministero del Lavoro e delle Politiche Sociali</a></li>
+        </ul>
+        
+        
+        <h2 class="category">Altri Strumenti Utili</h2>
+        
+        <ul>
+            <li><a href="https://www.camcom.it" target="_blank">Camere di Commercio</a></li>
+            <li><a href="https://www.istat.it" target="_blank">ISTAT - Statistiche Italiane</a></li>
+            <li><a href="https://www.ance.it" target="_blank">ANCE - Associazione Nazionale Costruttori Edili</a></li>
+            <li><a href="https://www.confcommercio.it" target="_blank">Confcommercio</a></li>
+            <li><a href="https://www.confartigianato.it" target="_blank">Confartigianato</a></li>
+         
+     </ul>
+<!-- Footer all'interno della sezione che scorre -->
+    <footer class="footer">
+        <p>&copy; 2025 Sinergie Srl - Tutti i diritti riservati</p>
+    </footer>
+    </div>
+</div>
+
+   </main> <!-- Fine main-container -->
+    </body>
+</html>
