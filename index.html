@@ -45,6 +45,23 @@
       color: #ffdd57;
       text-decoration: none;
     }
+/* Menu a discesa quando il tasto hamburger è cliccato */
+.barra-comandi .open {
+  display: block; /* Mostra il menu */
+}
+
+.barra-comandi ul {
+  display: none; /* Nasconde il menu di default su dispositivi mobili */
+}
+
+.barra-comandi.open ul {
+  display: block; /* Mostra il menu quando la classe "open" è aggiunta */
+}
+
+.barra-comandi ul li {
+  text-align: center;
+  margin: 15px 0;
+}
 
     /* Sezione Benvenuto con sfondo fumé e centrata */
     #benvenuto {
