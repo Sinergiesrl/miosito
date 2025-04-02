@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pagina delle promozioni di Sinergie Srl con offerte per professionisti e PMI">
+    <title>Le Nostre Promozioni - Sinergie Srl</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #fff;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            text-align: center;
+            color: #00ffff;
+        }
+
+        #logo {
+            width: 100px;
+            height: auto;
+        }
+
+        #welcome-text {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background-color: #ffdd57;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px; /* Aggiungi un po' di spazio sopra il tasto */
+        }
+
+        .btn-home:hover {
+            background-color: #ffd700;
+        }
+
+        #promozioni {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 50px 10%;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .promotions-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .promotion {
+            flex: 1 1 calc(33.333% - 40px);
+            max-width: 350px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            min-width: 280px;
+            margin: 10px;
+        }
+
+        .promotion h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #00ffff;
+            text-align: center;
+        }
+
+        .promotion p, .promotion ul {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #fff;
+            text-align: left;
+        }
+
+        .btn-promozione {
+            display: block;
+            background-color: #ffdd57;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-promozione:hover {
+            background-color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .promotions-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .promotion {
+                width: 90%;
+                max-width: 400px;
+            }
+        }
+
+        footer {
+            
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Tasto di ritorno alla homepage fisso in basso a destra */
+        #btn-home-sticky {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ffdd57;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        #btn-home-sticky:hover {
+            background-color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo-sinergie.jpg" alt="Logo di Sinergie Srl - Consulenza per professionisti e PMI" id="logo">
+        <h1 id="welcome-text">Benvenuti in Sinergie Srl - Le Nostre Promozioni</h1>
+    </header>
+
+    <!-- Sezione Promozioni -->
+    <section id="promozioni">
+        <div class="promotions-container">
+            <div class="promotion">
+                <h3>Le nostre offerte per professionisti e PMI</h3>
+                <p>🔹 Fractional Management → Sconto del 20% per i primi 3 mesi</p>
+                <p>🔹 Redazione Budget Costo del Personale → Prima consulenza gratuita</p>
+                <p>🔹 Gestione Contabile e Paghe → Tariffa flat per startup a partire da € 149/mese</p>
+                
+            </div>
+            <div class="promotion">
+                <h3>Pacchetto Base - Avvio Impresa</h3>
+                <p>Questo pacchetto è ideale per chi sta muovendo i primi passi nel mondo imprenditoriale.</p>
+                <p>Prezzo Promozionale: € 350,00 una tantum</p>
+                <p>Servizi inclusi:</p>
+                <ul>
+                    <li>Consulenza iniziale e analisi delle necessità;</li>
+                    <li>Assistenza nella costituzione della società;</li>
+                    <li>Iscrizione alle Camere di Commercio;</li>
+                    <li>Apertura Partita IVA e registrazione INPS/INAIL.</li>
+                </ul>
+            </div>
+            <div class="promotion">
+                <h3>Pacchetto - Crescita e Sviluppo</h3>
+                <p>Ideale per le imprese che vogliono espandersi.</p>
+                <p>Prezzo Promozionale: € 150,00 primo anno.</p>
+                <p>Servizi inclusi:</p>
+                <ul>
+                    <li>Pianificazione fiscale e finanziaria;</li>
+                    <li>Reportistica avanzata;</li>
+                    <li>Supporto per finanziamenti;</li>
+                    <li>Consulenza su investimenti e strategie.</li>
+                </ul>
+                
+            </div>
+        </div>
+    
+    <footer>
+        <p>&copy; 2025 Sinergie Srl - Tutti i diritti riservati</p>
+    </footer>
+
+    <!-- Tasto di ritorno alla homepage fisso -->
+    <a href="index.html" class="btn-home" id="btn-home-sticky">Home</a>
+</body>
+</html>
