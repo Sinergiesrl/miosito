@@ -10,7 +10,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('foto.jpg') no-repeat center center fixed;
+      background: url('images/foto.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #ffdd57;
     }
@@ -204,26 +204,20 @@
     }
 
     /* Media queries per dispositivi mobili */
-  @media (max-width: 768px) {
-  .barra-comandi ul {
-    display: none; /* Nasconde la barra di navigazione su mobile */
-  }
+ @media (max-width: 768px) {
+    nav {
+        display: none;
+    }
 
-  .barra-comandi {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+    nav.active {
+        display: block;
+    }
 
-  .barra-comandi li {
-    margin: 10px 0;
-  }
-
-  /* Mostra il menu quando è attivo */
-  nav.active {
-    display: block;
-  }
+    .hamburger-menu {
+        display: block;
+    }
 }
+
       
       .servizi-container {
         flex-direction: column;
@@ -389,7 +383,7 @@ nav ul li a {
   </header>
 <!-- Sezione Logo e Benvenuto -->
   <section id="benvenuto">
-    <img src="logo-sinergie.jpg" alt="Logo Sinergie Srl" class="logo">
+    <img src="images/logo-sinergie.jpg" alt="Logo Sinergie Srl" class="logo">
     <div id="scritta-benv">
       <h3>Benvenuti in Sinergie Srl</h3>
       <p>Fractional management, contabilità e relazioni industriali</p>
