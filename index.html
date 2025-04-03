@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sinergie Srl</title>                                                                                                                                     
+  <title>Sinergie Srl</title>
   <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-    <style>
+  <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -144,14 +143,13 @@
       color: #00ff00;
       font-size: 2em;
     }
+  /*Rimozine puntini dai tasti servizi*/
+  #servizi ul {
+  list-style-type: none;/*Questa riga rimuove i puntini accanto ai tasti*/
+  padding-left: 0; /*Evita spaziature indesiderate*/
+  margin: 0;
 
-    /* Rimozione puntini dai tasti servizi */
-    #servizi ul {
-      list-style-type: none; /* Questa riga rimuove i puntini accanto ai tasti */
-      padding-left: 0; /* Evita spaziature indesiderate */
-      margin: 0;
-    }
-
+}
     .servizio-link {
       color: #ffdd57;
       font-size: 1.5em;
@@ -187,201 +185,40 @@
 
     .titolo-mappa {
       color: #ffdd57;
-      font-size: 2.5em;
+font-size: 2.5em;
     }
-
-    #footer {
-      width: 80%; /* Riduce l'ampiezza rispetto alla barra comandi */
-      max-width: 300px; /* Imposta una larghezza massima */
-      background: rgba(0, 0, 0, 0.5);
-      padding: 0px;
-      text-align: center;
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%); /* Centra il footer */
-      border-radius: 10px; /* Opzionale, per bordi arrotondati */
-    }
-
-    /* Media queries per dispositivi mobili */
- @media (max-width: 768px) {
-    nav {
-        display: none;
-    }
-
-    nav.active {
-        display: block;
-    }
-
-    .hamburger-menu {
-        display: block;
-    }
-}
-
-      
-      .servizi-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .colonna {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-
-      #scritta-benv h3 {
-        font-size: 2em;
-      }
-
-      #scritta-benv p {
-        font-size: 1.2em;
-      }
-
-      .section-container {
-        width: 90%;
-        padding: 40px;
-      }
-
-      .titolo-servizi {
-        font-size: 2em;
-      }
-
-      .servizio-link {
-        font-size: 1.2em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      #benvenuto {
-        background-size: cover;
-      }
-
-      #benvenuto .logo {
-        max-width: 150px;
-      }
-
-      #scritta-benv h3 {
-        font-size: 1.8em;
-      }
-
-      #scritta-benv p {
-        font-size: 1.0em;
-      }
-
-      .titolo-servizi {
-        font-size: 1.8em;
-      }
-
-      .servizio-link {
-        font-size: 1.1em;
-      }
-
-      #footer {
-        width: 100%;
-        max-width: none;
-        padding: 10px;
-      }
-    }
-/* Stile base della barra di navigazione */
-nav {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
+#footer {
+    width: 80%; /* Riduce l'ampiezza rispetto alla barra comandi */
+    max-width: 300px; /* Imposta una larghezza massima */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0px;
     text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centra il footer */
+    border-radius: 10px; /* Opzionale, per bordi arrotondati */
 }
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #ffdd57;
-    text-decoration: none;
-}
-
-/* Stile del pulsante hamburger */
-.hamburger-menu {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 30px;
-    color: #ffdd57;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px; /* Spostato a destra */
-    z-index: 1100;
-}
-
-
-
-/* Nascondere la barra di navigazione su mobile */
-@media screen and (max-width: 768px) {
-    .hamburger-menu {
-        display: block;
-    }
-
-    nav {
-        display: none;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.8);
-    }
-
-    nav.active {
-        display: block;
-    }
-
-    nav ul {
-        text-align: center;
-        padding: 0;
-    }
-
-    nav ul li {
-        display: block;
-        padding: 10px;
-    }
-}
-
-    /* Mostra il pulsante hamburger su mobile */
-    .hamburger-menu {
-        display: block;
-    }
-    /* Mostra il menu quando è attivo */
-    nav.active {
-        display: block;
-    }
-}
-
   </style>
 </head>
 <body>
-<!-- Pulsante menu hamburger (visibile solo su mobile) -->
-    <button class="hamburger-menu" id="menuToggle">&#9776;</button>
-   
-    <!-- Barra di navigazione -->
-    <nav id="navBar">
-        <ul>
-            <li><a href="#" id="homeBtn">Home</a></li>
+
+  <!-- Barra comandi fissa -->
+  <header class="barra-comandi">
+    <nav>
+      <ul>
+        <li><a href="#" id="homeBtn">Home</a></li>
         <li><a href="chi-siamo.html">Chi Siamo</a></li>
         <li><a href="link-utili.html">Link Utili</a></li>
         <li><a href="#" id="serviziBtn">Servizi</a></li>
             <li><a href="promozioni.html">Promozioni</a></li>                                         
         <li><a href="#contatti" id="contattiBtn">Contatti</a></li>
         <li><a href="#mappa" id="mappaBtn">Mappa</a></li>
-       
-        </ul>
+      </ul>
     </nav>
-
   </header>
-<!-- Sezione Logo e Benvenuto -->
+
+  <!-- Sezione Logo e Benvenuto -->
   <section id="benvenuto">
     <img src="logo-sinergie.jpg" alt="Logo Sinergie Srl" class="logo">
     <div id="scritta-benv">
@@ -390,7 +227,8 @@ nav ul li a {
       <i>Soluzioni integrate per la tua impresa.</i>
     </div>
   </section>
-<!-- Sezione Servizi -->
+
+  <!-- Sezione Servizi -->
   <section id="servizi" class="section-container">
     <h2 class="titolo-servizi">I Nostri Servizi</h2>
     <div class="servizi-container">
@@ -399,7 +237,8 @@ nav ul li a {
         <ul>
           <li><a href="fractional-management.html" class="servizio-link">Fractional-Management</a></li>
           <li><a href="budget-costo-personale.html" class="servizio-link">Redazione Budget Costo del Personale</a></li>
-          <li><a href="contabilita-paghe.html" class="servizio-link">Gestione Contabilità e Paghe</a></li>
+          <a href="contabilita-paghe.html" class="servizio-link">Gestione Contabilità e Paghe</a>
+
         </ul>
       </div>
       <div class="colonna">
@@ -412,85 +251,118 @@ nav ul li a {
       </div>
     </div>
   </section>
-<!-- Sezione Contatti -->
+
+  <!-- Sezione Contatti -->
   <section id="contatti" class="section-container">
     <h2 class="titolo-contatti">Contatti</h2>
-    <p><span class="icona-contatti">📞</span> +39 123 456 7890</p>
-    <p><span class="icona-contatti">📧</span> info@sinergie2srl.it</p>
-    <p><span class="icona-contatti">🏢</span> Via esempio, 123 - Roma</p>
-    <p><a href="https://www.sinergie2srl.it" class="link-contatti">www.sinergie2srl.it</a></p>
+    <p>Indirizzo: Via Carlo Felice, 101 - 00185 Roma</p>
+    <p>Telefono: 06 77590895</p>
+    <p>Email: sinergie2srl@gmail.com</p>
+    <p><a href="http://www.sinergie2srl.it" class="link-contatti">www.sinergie2srl.it</a></p>
   </section>
-<!-- Sezione Mappa -->
+
+  <!-- Sezione Mappa -->
   <section id="mappa" class="section-container">
     <h2 class="titolo-mappa">Come Raggiungerci</h2>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.5695795126654!2d12.5086!3d41.8919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61a763cd63e3%3A0x29b76087dff9390e!2sVia%20Carlo%20Felice%2C%20101%2C%2000185%20Roma%20RM%2C%20Italia!5e0!3m2!1sit!2sit!4v1708100000000" width="80%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   </section>
 <!-- Footer -->
-  <footer id="footer">
-    <p>&copy; 2025 Sinergie Srl | Tutti i diritti riservati</p>
-  </footer>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const homeBtn = document.getElementById("homeBtn");
-  const serviziBtn = document.getElementById("serviziBtn");
-  const contattiBtn = document.getElementById("contattiBtn");
-  const mappaBtn = document.getElementById("mappaBtn");
+    <footer id="footer">
+        <p>© 2025 Sinergie Srl - Tutti i diritti riservati</p>
+    </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const homeBtn = document.getElementById("homeBtn");
+      const serviziBtn = document.getElementById("serviziBtn");
+      const contattiBtn = document.getElementById("contattiBtn");
+      const mappaBtn = document.getElementById("mappaBtn");
 
-  const benvenuto = document.getElementById("benvenuto");
-  const servizi = document.getElementById("servizi");
-  const contatti = document.getElementById("contatti");
-  const mappa = document.getElementById("mappa");
+      const benvenuto = document.getElementById("benvenuto");
+      const servizi = document.getElementById("servizi");
+      const contatti = document.getElementById("contatti");
+      const mappa = document.getElementById("mappa");
 
-  // Funzione per nascondere tutte le sezioni
-  function nascondiTutto() {
-    // Nascondi tutte le sezioni
-    servizi.style.display = "none";
-    contatti.style.display = "none";
-    mappa.style.display = "none";
-    benvenuto.style.display = "none";
-  }
+      function nascondiTutto() {
+        servizi.style.display = "none";
+        contatti.style.display = "none";
+        mappa.style.display = "none";
+        benvenuto.style.display = "none";
+      }
 
-  // Funzione per mostrare la sezione di Benvenuto
-  homeBtn.addEventListener("click", function () {
-    nascondiTutto();
-    benvenuto.style.display = "block";
-  });
+      homeBtn.addEventListener("click", function () {
+        nascondiTutto();
+        benvenuto.style.display = "block";
+      });
 
-  // Funzione per mostrare la sezione Servizi
-  serviziBtn.addEventListener("click", function () {
-    nascondiTutto();
-    servizi.style.display = "block";
-  });
+      serviziBtn.addEventListener("click", function () {
+        nascondiTutto();
+        servizi.style.display = "block";
+      });
 
-  // Funzione per mostrare la sezione Contatti
-  contattiBtn.addEventListener("click", function () {
-    nascondiTutto();
-    contatti.style.display = "block";
-  });
+      contattiBtn.addEventListener("click", function () {
+        nascondiTutto();
+        contatti.style.display = "block";
+      });
 
-  // Funzione per mostrare la sezione Mappa
-  mappaBtn.addEventListener("click", function () {
-    nascondiTutto();
-    mappa.style.display = "block";
-  });
+      mappaBtn.addEventListener("click", function () {
+        nascondiTutto();
+        mappa.style.display = "block";
+      });
 
-  // Inizializzazione per mostrare la home al caricamento della pagina
-  benvenuto.style.display = "block";
-});
-document.getElementById("menuToggle").addEventListener("click", function() {
-    document.getElementById("navBar").classList.toggle("active");
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.getElementById("menuToggle");
-    const navBar = document.getElementById("navBar");
-
-    menuToggle.addEventListener("click", function() {
-        navBar.classList.toggle("active");
+      // Mostra la sezione di benvenuto all'avvio
+      benvenuto.style.display = "block";
     });
+ 
+document.addEventListener("DOMContentLoaded", function () {
+    const homeBtn = document.getElementById("homeBtn");
+    const serviziBtn = document.getElementById("serviziBtn");
+    const contattiBtn = document.getElementById("contattiBtn");
+    const mappaBtn = document.getElementById("mappaBtn");
+
+    const benvenuto = document.getElementById("benvenuto");
+    const servizi = document.getElementById("servizi");
+    const contatti = document.getElementById("contatti");
+    const mappa = document.getElementById("mappa");
+
+    function nascondiTutto() {
+        servizi.style.display = "none";
+        contatti.style.display = "none";
+        mappa.style.display = "none";
+        benvenuto.style.display = "none";
+    }
+
+    homeBtn.addEventListener("click", function () {
+        nascondiTutto();
+        benvenuto.style.display = "block";
+    });
+
+    serviziBtn.addEventListener("click", function () {
+        nascondiTutto();
+        servizi.style.display = "block";
+    });
+
+    contattiBtn.addEventListener("click", function (event) {
+        event.preventDefault(); // Evita il comportamento predefinito del link
+        nascondiTutto();
+        contatti.style.display = "block";
+    });
+
+     mappaBtn.addEventListener("click", function (event) {
+        event.preventDefault(); // Evita il comportamento predefinito del link
+        nascondiTutto();
+        mappa.style.display = "block";
+    });
+
+    // 🔹 Controlla se l'URL contiene #contatti o #mappa e mostra la sezione corrispondente
+    if (window.location.hash === "#contatti") {
+        nascondiTutto();
+        contatti.style.display = "block";
+    } else if (window.location.hash === "#mappa") {
+        nascondiTutto();
+        mappa.style.display = "block";
+    }
+
 });
-
-
 </script>
 </body>
-</html>   
+</html>
