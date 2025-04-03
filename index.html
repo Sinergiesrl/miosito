@@ -310,7 +310,7 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Stile del pulsante hamburger (inizialmente nascosto) */
+/* Stile del pulsante hamburger */
 .hamburger-menu {
     display: none;
     background: none;
@@ -320,13 +320,19 @@ nav ul li a {
     cursor: pointer;
     position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px; /* Spostato a destra */
+    z-index: 1100;
 }
+
+
 
 /* Nascondere la barra di navigazione su mobile */
 @media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
     nav {
-        
         display: none;
         position: absolute;
         top: 50px;
@@ -335,17 +341,20 @@ nav ul li a {
         background: rgba(0, 0, 0, 0.8);
     }
 
-      
-         nav.active {
-          display: block;
-          }
+    nav.active {
+        display: block;
+    }
 
+    nav ul {
+        text-align: center;
+        padding: 0;
+    }
 
     nav ul li {
         display: block;
-        text-align: left;
         padding: 10px;
     }
+}
 
     /* Mostra il pulsante hamburger su mobile */
     .hamburger-menu {
@@ -474,6 +483,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Inizializzazione per mostrare la home al caricamento della pagina
   benvenuto.style.display = "block";
 });
+document.getElementById("menuToggle").addEventListener("click", function() {
+    document.getElementById("navBar").classList.toggle("active");
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     const menuToggle = document.getElementById("menuToggle");
@@ -483,9 +495,8 @@ document.addEventListener("DOMContentLoaded", function() {
         navBar.classList.toggle("active");
     });
 });
-    
 
- 
+
 </script>
 </body>
 </html>   
