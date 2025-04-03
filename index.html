@@ -475,7 +475,14 @@ document.addEventListener("DOMContentLoaded", function () {
   benvenuto.style.display = "block";
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.getElementById("menuToggle");
+    const navBar = document.getElementById("navBar");
 
+    menuToggle.addEventListener("click", function() {
+        navBar.classList.toggle("active");
+    });
+});
     
 
  
