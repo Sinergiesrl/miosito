@@ -245,7 +245,24 @@
       .section-container {
         width: 90%;
         padding: 40px;
-      }
+      nav.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1001; /* Assicurati che non copra altri contenuti */
+  }
+  
+  /* Ridurre la posizione del tasto hamburger per evitare sovrapposizioni */
+  .hamburger-menu {
+    position: absolute;
+    top: 15px; /* Aumenta la distanza dalla parte superiore */
+    right: 15px; /* Aumenta la distanza dalla parte destra */
+    z-index: 1100; /* Assicurati che il tasto hamburger sia sempre visibile */
+  }
+}
+
     }
 
     @media (max-width: 480px) {
