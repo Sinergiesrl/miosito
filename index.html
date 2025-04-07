@@ -218,7 +218,17 @@
 
       nav.active {
         display: block;
-      }
+        z-index: 1001;  /* Posiziona il menu sopra il resto del contenuto */
+}
+
+nav ul li a {
+  display: block;  /* I link diventano verticali */
+  padding: 10px 0;
+  text-align: center;
+}
+
+        
+      
 
       .hamburger-menu {
         display: block;
