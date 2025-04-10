@@ -205,19 +205,35 @@
       border-radius: 10px;
     }
 
-    @media (max-width: 768px) {
-      nav {
-
-           nav ul li {
-             margin: 5px 0; /* Meno spazio tra le voci in verticale */
-             display: inline-block; /* Assicurati che i link siano allineati correttamente */
-           }
-
+   @media (max-width: 768px) {
+  .hamburger-menu {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1100;
+  }
+     nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1001;
+    padding-top: 60px;
+    text-align: left;
+  }
+nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
      nav.active ul li {
      display: block; /* Garantisce che i link vengano mostrati in blocco quando il menu è attivo */
     }
-
-        display: none;
+nav ul li {
+    margin: 15px 0;
       }
 
       nav.active {
@@ -226,9 +242,10 @@
 }
 
 nav ul li a {
-  display: block;  /* I link diventano verticali */
-  padding: 5px 0;
-  text-align: center;
+    display: block;
+    padding: 10px;
+    color: #ffdd57;
+    text-align: left;
 }
 
         
@@ -277,7 +294,7 @@ nav ul li a {
   }
 }
 
-    }
+   
 
     @media (max-width: 480px) {
       #benvenuto .logo {
