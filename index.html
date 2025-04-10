@@ -33,7 +33,7 @@
     }
 
     nav ul li {
-      margin: 0 10px;
+      margin: 0 20px;
     }
 
     nav ul li a {
@@ -205,35 +205,18 @@
       border-radius: 10px;
     }
 
-   @media (max-width: 768px) {
-  .hamburger-menu {
-    display: block;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 1100;
-  }
-     nav {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 1001;
-    padding-top: 60px;
-    text-align: left;
-  }
-nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 20px;
+    @media (max-width: 768px) {
+      nav {
+
+           nav ul li {
+             display: inline-block; /* Assicurati che i link siano allineati correttamente */
+           }
+
      nav.active ul li {
      display: block; /* Garantisce che i link vengano mostrati in blocco quando il menu è attivo */
     }
-nav ul li {
-    margin: 15px 0;
+
+        display: none;
       }
 
       nav.active {
@@ -242,10 +225,9 @@ nav ul li {
 }
 
 nav ul li a {
-    display: block;
-    padding: 10px;
-    color: #ffdd57;
-    text-align: left;
+  display: block;  /* I link diventano verticali */
+  padding: 10px 0;
+  text-align: center;
 }
 
         
@@ -287,14 +269,14 @@ nav ul li a {
   
   /* Ridurre la posizione del tasto hamburger per evitare sovrapposizioni */
   .hamburger-menu {
-    position: absolute;
+   position: absolute;
     top: 15px; /* Aumenta la distanza dalla parte superiore */
     right: 15px; /* Aumenta la distanza dalla parte destra */
     z-index: 1100; /* Assicurati che il tasto hamburger sia sempre visibile */
   }
 }
 
-   
+    }
 
     @media (max-width: 480px) {
       #benvenuto .logo {
@@ -380,59 +362,65 @@ nav ul li a {
   </footer>
 
   <script>
-  const menuToggle = document.getElementById("menuToggle");
-  const navBar = document.getElementById("navBar");
+    const menuToggle = document.getElementById('menuToggle');
+    const navBar = document.getElementById('navBar');
+    const serviziBtn = document.getElementById('serviziBtn');
+    const contattiBtn = document.getElementById('contattiBtn');
+    const mappaBtn = document.getElementById('mappaBtn');
+    const homeBtn = document.getElementById('homeBtn');
 
-  menuToggle.addEventListener("click", () => {
-    navBar.classList.toggle("active");
-  });
+    const sezioni = {
+      benvenuto: document.getElementById('benvenuto'),
+      servizi: document.getElementById('servizi'),
+      contatti: document.getElementById('contatti'),
+      mappa: document.getElementById('mappa')
+    };
 
-  const homeBtn = document.getElementById("homeBtn");
-  const serviziBtn = document.getElementById("serviziBtn");
-  const contattiBtn = document.getElementById("contattiBtn");
-  const mappaBtn = document.getElementById("mappaBtn");
+    function nascondiTutto() {
+      sezioni.benvenuto.style.display = 'none';
+      sezioni.servizi.style.display = 'none';
+      sezioni.contatti.style.display = 'none';
+      sezioni.mappa.style.display = 'none';
+    }
 
-  const benvenuto = document.getElementById("benvenuto");
-  const servizi = document.getElementById("servizi");
-  const contatti = document.getElementById("contatti");
-  const mappa = document.getElementById("mappa");
+    homeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      nascondiTutto();
+      sezioni.benvenuto.style.display = 'block';
+    });
 
-  function nascondiTutteLeSezioni() {
-    servizi.style.display = "none";
-    contatti.style.display = "none";
-    if (mappa) mappa.style.display = "none";
-    benvenuto.style.display = "none";
-  }
+    serviziBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      nascondiTutto();
+      sezioni.servizi.style.display = 'block';
+    });
 
-  homeBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    nascondiTutteLeSezioni();
-    benvenuto.style.display = "block";
-    navBar.classList.remove("active");
-  });
+    contattiBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      nascondiTutto();
+      sezioni.contatti.style.display = 'block';
+    });
 
-  serviziBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    nascondiTutteLeSezioni();
-    servizi.style.display = "block";
-    navBar.classList.remove("active");
-  });
+    mappaBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      nascondiTutto();
+      sezioni.mappa.style.display = 'block';
+    });
 
-  contattiBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    nascondiTutteLeSezioni();
-    contatti.style.display = "block";
-    navBar.classList.remove("active");
-  });
+    // Gestione hamburger menu per dispositivi mobili
+    menuToggle.addEventListener('click', () => {
+      navBar.classList.toggle('active');
+    });
 
-  mappaBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    nascondiTutteLeSezioni();
-    if (mappa) mappa.style.display = "block";
-    navBar.classList.remove("active");
-  });
-</script>
+    // Nasconde il menu al click su un link (mobile UX migliorata)
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.addEventListener('click', () => {
+        navBar.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
+
 
   
