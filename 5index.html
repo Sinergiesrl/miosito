@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinergie Srl</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('foto.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffdd57;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        .logo-scritta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 100px auto 20px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-scritta img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        .logo-scritta h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffdd57;
+        }
+
+        .menu {
+            display: flex;
+            gap: 1em;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #ffdd57;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .menu a:hover {
+            transform: scale(1.1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #ffdd57;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                position: fixed;
+                left: -250px;
+                top: 0;
+                flex-direction: column;
+                width: 250px;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 2em 1em;
+                gap: 20px;
+                transition: left 0.3s ease;
+            }
+
+            .menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        .sezione {
+            display: none;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            margin: 80px auto 20px auto;
+            width: 90%;
+            border-radius: 10px;
+        }
+
+        .sezione h2 {
+            color: #ffdd57;
+        }
+
+        .sezione h3 {
+            color: cyan;
+        }
+
+        .sezione h4 {
+            color: lime;
+        }
+
+        .footer {
+            text-align: center;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            color: #ffdd57;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div><div></div><div></div>
+        </div>
+        <div class="menu" id="menu">
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('chi-siamo')">Chi siamo</a>
+            <a href="#" onclick="showSection('link-utili')">Link utili</a>
+            <a href="#" onclick="showSection('servizi')">Servizi</a>
+            <a href="#" onclick="showSection('contatti')">Contatti</a>
+            <a href="#" onclick="showSection('mappa')">Mappa</a>
+        </div>
+    </div>
+
+    <div id="logoScritta" class="logo-scritta">
+        <img src="logo-sinergie.jpg" alt="Logo Sinergie Srl" class="logo">
+        <h1>Benvenuti in Sinergie Srl</h1>
+    </div>
+
+    <div id="chi-siamo" class="sezione">
+        <h2>Chi Siamo</h2>
+        <p>Sinergie Srl si occupa di consulenza, relazioni industriali, sicurezza sul lavoro, paghe e contabilità. Professionalità, serietà e risultati concreti al servizio delle aziende.</p>
+    </div>
+
+    <div id="link-utili" class="sezione">
+        <h2>Link Utili</h2>
+        <ul>
+            <li><a href="#" style="color:#ffdd57;">www.inps.it</a></li>
+            <li><a href="#" style="color:#ffdd57;">www.agenziaentrate.gov.it</a></li>
+            <li><a href="#" style="color:#ffdd57;">www.cisl.it</a></li>
+        </ul>
+    </div>
+
+    <div id="servizi" class="sezione">
+        <h2>I Nostri Servizi</h2>
+        <h3>Servizi Principali</h3>
+        <p style="color:#ffdd57;">Relazioni Industriali, Sicurezza sul Lavoro, Gestione Paghe e Contabilità.</p>
+        <h4>Servizi Complementari</h4>
+        <p style="color:#ffdd57;">Consulenza energetica, Formazione, Mediazione Civile.</p>
+    </div>
+
+    <div id="contatti" class="sezione">
+        <h2 style="color: cyan;">Contatti</h2>
+        <p>Indirizzo: Via Carlo Felice, 101 - 00185 Roma</p>
+        <p>Telefono: +39 06 77590895</p>
+        <p>Email: sinergie2srl@gmail.com</p>
+        <p><a href="http://www.sinergie2srl.it" target="_blank" style="color:cyan;">www.sinergie2srl.it</a></p>
+    </div>
+
+    <div id="mappa" class="sezione">
+        <h2 style="color:#ffdd57;">Come Raggiungerci</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.5695795126654!2d12.5086!3d41.8919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61a763cd63e3%3A0x29b76087dff9390e!2sVia%20Carlo%20Felice%2C%20101%2C%2000185%20Roma%20RM%2C%20Italia!5e0!3m2!1sit!2sit!4v1708100000000" width="80%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+    <div class="footer">
+        © 2025 Sinergie Srl - Tutti i diritti riservati.
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('active');
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.sezione');
+            sections.forEach(sec => sec.style.display = 'none');
+
+            if (sectionId === 'home') {
+                document.getElementById('logoScritta').style.opacity = 1;
+            } else {
+                document.getElementById('logoScritta').style.opacity = 0;
+            }
+
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            if (document.getElementById('menu').classList.contains('active')) {
+                document.getElementById('menu').classList.remove('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
