@@ -240,13 +240,44 @@ margin-bottom: 40px; /* Aggiunge spazio sotto ogni h1 */
 }
 
 
-/* Responsività mobile */
 @media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
     .scrolling-text {
-        font-size: 1.5em; /* Riduce la dimensione del carattere su dispositivi mobili */
-        letter-spacing: 0.5px; /* Riduce la spaziatura tra i caratteri su dispositivi mobili */
+        font-size: 1.5em;
+    }
+
+    .footer {
+        font-size: 0.8em;
+    }
+
+    aside {
+        display: none; /* <-- aggiungi questa riga per nascondere la sezione */
+    }
+
+    .logo-container {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.5;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
     }
 }
+
 
         
 /* Footer all'interno della sezione che scorre */
