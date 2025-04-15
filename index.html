@@ -360,46 +360,42 @@
       document.getElementById(id).style.display = 'block';
     }
   }
-
+// Funzione per chiudere il menu hamburger se è attivo
+  function chiudiMenu() {
+    navBar.classList.remove('active');
+  }
   // Eventi di click sui pulsanti
   homeBtn.addEventListener('click', e => {
     e.preventDefault();
     mostraSezione('benvenuto');
+    chiudiMenu();
   });
 
   serviziBtn.addEventListener('click', e => {
     e.preventDefault();
     mostraSezione('servizi');
+    chiudiMenu();
   });
 
   contattiBtn.addEventListener('click', e => {
     e.preventDefault();
     mostraSezione('contatti');
+    chiudiMenu();
   });
 
   mappaBtn.addEventListener('click', e => {
     e.preventDefault();
     mostraSezione('mappa');
+    chiudiMenu();
   });
 
-  // Menù hamburger
+  // Gestione apertura/chiusura menu hamburger
   menuToggle.addEventListener('click', () => {
     navBar.classList.toggle('active');
   });
-document.querySelectorAll('.navbar-collapse .nav-link').forEach(function(link) {
-    link.addEventListener('click', function() {
-        // chiudi il menu se aperto
-        var navbar = document.querySelector('.navbar-collapse');
-        if (navbar.classList.contains('show')) {
-            new bootstrap.Collapse(navbar).hide();
-        }
-    });
-});
 
-  // Inizialmente mostra solo la home
+  // Mostra solo la home all'inizio
   mostraSezione('benvenuto');
 </script>
-
-
   </body>
 </html>
