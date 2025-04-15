@@ -386,6 +386,15 @@
   menuToggle.addEventListener('click', () => {
     navBar.classList.toggle('active');
   });
+document.querySelectorAll('.navbar-collapse .nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+        // chiudi il menu se aperto
+        var navbar = document.querySelector('.navbar-collapse');
+        if (navbar.classList.contains('show')) {
+            new bootstrap.Collapse(navbar).hide();
+        }
+    });
+});
 
   // Inizialmente mostra solo la home
   mostraSezione('benvenuto');
