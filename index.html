@@ -254,6 +254,23 @@
         .servizio-link {
           font-size:1.1em;
           }
+        /* --- CORREZIONE VISIBILITÀ TASTO HAMBURGER SU MOBILE --- */
+.hamburger-menu {
+position: fixed !important;   /* resta visibile sopra le sezioni */
+top: 15px;
+right: 15px;
+z-index: 3000 !important;     /* più alto di tutto il resto */
+}
+
+.section-container {
+position: absolute;
+z-index: 1000;                /* inferiore al tasto hamburger */
+}
+
+nav.barra-comandi {
+z-index: 2500;                /* la barra resta sotto al tasto ma sopra il contenuto */
+}
+
        #footer {
          width: 80%;
          max-width: none;
@@ -581,6 +598,7 @@
 </script>
 </body>
 </html>
+
 
 
 
