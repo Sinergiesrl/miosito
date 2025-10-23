@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinergie Srl</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('foto.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffdd57;
+    }
+
+    .barra-comandi, nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      display: block;  /* I link diventano verticali */
+  padding: 10px 0;
+  text-align: center;
+      color: #ffdd57;
+      text-decoration: none;
+    }
+
+    .hamburger-menu {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #ffdd57;
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 1100;
+    }
+
+    #benvenuto {
+      position: relative;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      color: #ffdd57;
+      display: block;
+    }
+
+    #benvenuto h2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      font-size: 2.5em;
+      z-index: 2;
+    }
+
+    #benvenuto .logo {
+      position: absolute;
+      top: 85px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      max-width: 200px;
+    }
+
+    #scritta-benv {
+      position: absolute;
+      top: 250px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+      color: #ffdd57;
+    }
+
+    #scritta-benv h3 {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #scritta-benv p {
+      font-size: 1em;
+      font-weight: bold;
+      color: #00ffff;
+    }
+
+    #scritta-benv i {
+      font-size: 1em;
+      font-style: italic;
+      color: #9ACD32;
+    }
+
+    .section-container {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 80px;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+
+    .servizi-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .colonna {
+      width: 45%;
+      margin-bottom: 20px;
+    }
+
+    .titolo-servizi {
+      color: #ffdd57;
+      font-size: 2.5em;
+    }
+
+    .titolo-principali {
+      color: #00ffff;
+      font-size: 2em;
+    }
+
+    .titolo-complementari {
+      color: #00ff00;
+      font-size: 2em;
+    }
+
+    #servizi ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .servizio-link {
+      color: #ffdd57;
+      font-size: 1.5em;
+      display: block;
+      margin-top: 20px;
+    }
+
+    .titolo-contatti {
+      color: #00ffff;
+      font-size: 2.5em;
+    }
+
+    .section-container p {
+      color: #f8f8f8;
+      font-size: 1.2em;
+    }
+
+    .icona-contatti {
+      color: #ffdd57;
+      margin-right: 10px;
+    }
+
+    .link-contatti {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .link-contatti:hover {
+      text-decoration: underline;
+    }
+
+    .titolo-mappa {
+      color: #ffdd57;
+      font-size: 2.5em;
+    }
+
+    #footer { width: 60%; max-width: 300px; background: rgba(0, 0, 0, 0.5); padding: 8px 12px; text-align: center; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 10px; color: var(--accent); }
+
+    /* --- consulenza online styles (card + form) --- */
+    .booking-wrapper { display:flex; gap:24px; flex-wrap:wrap; }
+    .booking-main { flex:1; min-width:320px; background: rgba(255,255,255,0.03); padding:18px; border-radius:10px; color:var(--accent); }
+    .booking-aside { width:360px; min-width:280px; background: rgba(255,255,255,0.02); padding:16px; border-radius:10px; color:#f5f5f5; }
+    label{display:block;font-weight:700;margin:10px 0 6px;color:var(--accent);}
+    input, select, textarea { width:100%; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--accent); box-sizing:border-box; }
+    textarea{ min-height:110px; resize:vertical; }
+    .btn { background:var(--accent); color:#000; padding:10px 14px; border-radius:8px; border:none; font-weight:700; cursor:pointer; }
+    .btn.ghost { background:transparent; border:1px solid var(--accent); color:var(--accent); }
+    .summary-line { display:flex; justify-content:space-between; margin:8px 0; color:#f1f1f1; }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .section-container { width: 92%; padding: 20px; top: 90px; left: 50%; transform: translateX(-50%); }
+      .colonna { width: 100%; }
+      .booking-aside { width:100%; }
+      nav ul { display:none; }
+      .hamburger-menu { display:block; }
+    }
+
+    @media (max-width:480px) {
+      #scritta-benv h3 { font-size:1.6em; }
+      .section-container { padding:16px; top:80px; }
+    }
+  </style>
+</head>
+<body>
+  <button class="hamburger-menu" id="menuToggle">&#9776;</button>
+
+  <nav id="navBar" class="barra-comandi">
+    <ul>
+      <li><a href="#" id="homeBtn">Home</a></li>
+      <li><a href="chi-siamo.html">Chi Siamo</a></li>
+      <li><a href="link-utili.html">Link Utili</a></li>
+      <li><a href="#" id="serviziBtn">Servizi</a></li>
+      <li><a href="promozioni.html">Promozioni</a></li>
+      <li><a href="?section=contatti" id="contattiBtn">Contatti</a></li>
+      <li><a href="?section=mappa" id="mappaBtn">Mappa</a></li>
+      <li><a href="?section=consulenza" id="consulenzaBtn">Consulenza Online</a></li>
+  </ul>
+  </nav>
+
+  <section id="benvenuto">
+    <img src="logo-sinergie.jpg" alt="Logo Sinergie Srl" class="logo">
+    <div id="scritta-benv">
+      <h3>Benvenuti in Sinergie Srl</h3>
+      <p>Fractional management, contabilità e relazioni industriali</p>
+      <i>Soluzioni integrate per la tua impresa.</i>
+    </div>
+  </section>
+
+  <!-- Sezione Servizi (già esistente) -->
+  <section id="servizi" class="section-container" aria-hidden="true">
+    <h2 class="titolo-servizi">I Nostri Servizi</h2>
+    <div class="servizi-container">
+      <div class="colonna">
+        <h3 class="titolo-principali">Servizi Principali</h3>
+        <ul>
+          <li><a href="fractional-management.html" class="servizio-link">Fractional-Management</a></li>
+          <li><a href="budget-costo-personale.html" class="servizio-link">Redazione Budget Costo del Personale</a></li>
+          <li><a href="contabilita-paghe.html" class="servizio-link">Gestione Contabilità e Paghe</a></li>
+        </ul>
+      </div>
+      <div class="colonna">
+        <h3 class="titolo-complementari">Servizi Complementari</h3>
+        <ul>
+          <li><a href="gestione-relazioni-industriali.html" class="servizio-link">Gestione delle Relazioni industriali</a></li>
+          <li><a href="mediazione-civile-commerciale.html" class="servizio-link">Mediazione Civile e Commerciale</a></li>
+          <li><a href="assistenza-legale.html" class="servizio-link">Assistenza Legale</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione Contatti -->
+  <section id="contatti" class="section-container" aria-hidden="true">
+    <h2 class="titolo-contatti">Contatti</h2>
+    <p><span class="icona-contatti">📞</span> +39 06 77590895</p>
+    <p><span class="icona-contatti">📧</span> sinergie2srl@gmail.com</p>
+    <p><span class="icona-contatti">🏢</span> Via Carlo Felice, 101 - 00185 Roma</p>
+    <p><a href="https://www.sinergie2srl.it" class="link-contatti">www.sinergie2srl.it</a></p>
+  </section>
+
+  <!-- Sezione Mappa -->
+  <section id="mappa" class="section-container" aria-hidden="true">
+    <h2 class="titolo-mappa">Come Raggiungerci</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.5695795126654!2d12.5086!3d41.8919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61a763cd63e3%3A0x29b76087dff9390e!2sVia%20Carlo%20Felice%2C%20101%2C%2000185%20Roma%20RM%2C%20Italia!5e0!3m2!1sit!2sit!4v1708100000000" width="80%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </section>
+
+  <!-- ===== Sezione Consulenza Online (inclusa nel sito) ===== -->
+  <section id="consulenza" class="section-container" aria-hidden="true">
+    <h2 class="titolo-servizi">Consulenza Online</h2>
+    <p style="color:#f1f1f1; margin-bottom:14px;">Prenota una consulenza specialistica: assistenza legale, contabilità e buste paga, gestione del personale, fractional management. Pagamento sicuro con carta (modalità test/sandbox).</p>
+
+    <div class="booking-wrapper">
+      <div class="booking-main">
+        <form id="bookingForm">
+          <label for="service">Servizio richiesto</label>
+          <select id="service" name="service" required>
+            <option value="fractional">Fractional management — 150€ / 60 min</option>
+            <option value="contabilita">Contabilità e Buste Paga — 120€ / 60 min</option>
+            <option value="relazioni">Gestione relazioni industriali — 130€ / 60 min</option>
+            <option value="assistenza_legale">Assistenza legale — 180€ / 60 min</option>
+          </select>
+
+          <label for="nome">Nome e Cognome</label>
+          <input id="nome" name="nome" type="text" placeholder="Mario Rossi" required>
+
+          <label for="telefono">Telefono</label>
+          <input id="telefono" name="telefono" type="tel" placeholder="+39 333 1234567" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="mario@esempio.it" required>
+
+          <label for="datetime">Data e Ora preferita</label>
+          <input id="datetime" name="datetime" type="datetime-local" required>
+
+          <label for="note">Note / Descrizione</label>
+          <textarea id="note" name="note" placeholder="Breve descrizione della richiesta"></textarea>
+
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn ghost" id="calcolaPrezzo" type="button">Calcola prezzo</button>
+            <button class="btn ghost" id="annulla" type="reset">Annulla</button>
+          </div>
+        </form>
+      </div>
+
+      <aside class="booking-aside">
+        <h3 style="color:var(--ciano); margin-top:0">Riepilogo & Pagamento (sandbox)</h3>
+        <div class="summary-line"><span>Servizio</span><strong id="s_servizio">-</strong></div>
+        <div class="summary-line"><span>Data / Ora</span><strong id="s_datetime">-</strong></div>
+        <div class="summary-line"><span>Cliente</span><strong id="s_nome">-</strong></div>
+        <div class="summary-line"><span>Prezzo</span><strong id="s_prezzo">€ 0</strong></div>
+
+        <label style="margin-top:10px">Dettagli carta (test)</label>
+        <div id="card-element" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);"></div>
+        <div id="card-errors" role="alert" style="color:#ff6b6b;margin-top:8px"></div>
+
+        <div style="margin-top:12px;display:flex;gap:8px;flex-direction:column">
+          <button class="btn" id="payBtn">Paga e Prenota (test)</button>
+          <button class="btn ghost" id="payLater">Prenota e paga in seguito</button>
+        </div>
+
+        <small style="display:block;margin-top:12px;color:#cfcfcf">Modalità test: usa le carte di prova Stripe (es. 4242 4242 4242 4242). I dati di carta non transitano sul nostro server con Stripe Elements se implementato correttamente.</small>
+      </aside>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <p>&copy; 2025 Sinergie Srl | Tutti i diritti riservati</p>
+  </footer>
+
+  <!-- JS: gestione nav + integrazione Stripe (test) -->
+      
+    <script src="https://js.stripe.com/v3/"></script>
+<script>
+/* --------------------------
+       NAVIGATION / SECTIONS
+       -------------------------- */
+    const homeBtn = document.getElementById('homeBtn');
+  const serviziBtn = document.getElementById('serviziBtn');
+  const contattiBtn = document.getElementById('contattiBtn');
+  const mappaBtn = document.getElementById('mappaBtn');
+  const consulenzaBtn = document.getElementById('consulenzaBtn');
+  const benvenuto = document.getElementById('benvenuto');
+  const servizi = document.getElementById('servizi');
+  const contatti = document.getElementById('contatti');
+  const mappa = document.getElementById('mappa');
+  const consulenza = document.getElementById('consulenza');
+  const menuToggle = document.getElementById('menuToggle');
+  const navBar = document.getElementById('navBar');
+
+  // Nasconde tutte le sezioni tranne quella scelta
+  function mostraSezione(id) {
+    [servizi, contatti, mappa, consulenza].forEach(section => section.style.display = 'none');
+    benvenuto.style.display = 'none';
+    if (id === 'benvenuto') {
+      benvenuto.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      el.style.display = 'block';
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function chiudiMenu() {
+    navBar.classList.remove('active');
+  }
+
+  homeBtn.addEventListener('click', e => { e.preventDefault(); mostraSezione('benvenuto'); chiudiMenu(); });
+  serviziBtn.addEventListener('click', e => { e.preventDefault(); mostraSezione('servizi'); chiudiMenu(); });
+  contattiBtn.addEventListener('click', e => { e.preventDefault(); mostraSezione('contatti'); chiudiMenu(); });
+  mappaBtn.addEventListener('click', e => { e.preventDefault(); mostraSezione('mappa'); chiudiMenu(); });
+  consulenzaBtn.addEventListener('click', e => { e.preventDefault(); mostraSezione('consulenza'); chiudiMenu(); });
+
+  menuToggle.addEventListener('click', () => { navBar.classList.toggle('active'); });
+
+  /* --------------------------
+     BOOKING + STRIPE (TEST)
+     -------------------------- */
+
+  // CHIAVE PUBLISHABLE DI TEST (sostituisci se vuoi): modalità sandbox/test
+  const STRIPE_PUBLISHABLE_KEY = 'pk_test_REPLACE_WITH_YOUR_TEST_KEY';
+
+  // Prezzi in euro
+  const PRICES = {
+    fractional: 150,
+    contabilita: 120,
+    relazioni: 130,
+    assistenza_legale: 180
+  };
+
+  // Inizializza Stripe Elements
+  const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+  const elements = stripe.elements();
+  const style = {
+    base: {
+      color: '#fff',
+      fontSize: '16px',
+      '::placeholder': { color: '#999' }
+    }
+  };
+  const card = elements.create('card', { style });
+  card.mount('#card-element');
+
+  const bookingForm = document.getElementById('bookingForm');
+  const calcolaPrezzoBtn = document.getElementById('calcolaPrezzo');
+  const payBtn = document.getElementById('payBtn');
+  const payLaterBtn = document.getElementById('payLater');
+
+  const s_servizio = document.getElementById('s_servizio');
+  const s_datetime = document.getElementById('s_datetime');
+  const s_nome = document.getElementById('s_nome');
+  const s_prezzo = document.getElementById('s_prezzo');
+  const cardErrors = document.getElementById('card-errors');
+
+  function aggiornaRiepilogo() {
+    const service = bookingForm.service.value;
+    s_servizio.textContent = bookingForm.service.options[bookingForm.service.selectedIndex].text.split('—')[0].trim();
+    s_datetime.textContent = bookingForm.datetime.value || '-';
+    s_nome.textContent = bookingForm.nome.value || '-';
+    s_prezzo.textContent = '€ ' + (PRICES[service] || 0);
+  }
+
+  calcolaPrezzoBtn.addEventListener('click', function () {
+    aggiornaRiepilogo();
+    alert('Prezzo aggiornato: ' + s_prezzo.textContent);
+  });
+
+  // Prenotazione "paga in seguito"
+  payLaterBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(bookingForm);
+    try {
+      const resp = await fetch('/api/bookings', { method: 'POST', body: fd });
+      const json = await resp.json();
+      if (json && json.success) alert('Prenotazione registrata. Riceverai istruzioni per il pagamento via email.');
+      else alert('Errore registrazione prenotazione: ' + (json?.message || 'controlla i dati'));
+    } catch (err) {
+      alert('Impossibile contattare il server per registrare la prenotazione.');
+    }
+  });
+
+  // Pagamento immediato (test Stripe)
+  payBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    if (!bookingForm.checkValidity()) { bookingForm.reportValidity(); return; }
+    aggiornaRiepilogo();
+
+    const payload = {
+      nome: bookingForm.nome.value,
+      telefono: bookingForm.telefono.value,
+      email: bookingForm.email.value,
+      service: bookingForm.service.value,
+      datetime: bookingForm.datetime.value,
+      note: bookingForm.note.value,
+      amount: Math.round((PRICES[bookingForm.service.value] || 0) * 100)
+    };
+
+    try {
+      const res = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!data || !data.clientSecret) {
+        alert('Errore creazione pagamento: risposta server non valida');
+        return;
+      }
+
+      const result = await stripe.confirmCardPayment(data.clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: { name: payload.nome, email: payload.email, phone: payload.telefono }
+        }
+      });
+
+      if (result.error) {
+        cardErrors.textContent = result.error.message;
+        alert('Pagamento fallito: ' + result.error.message);
+      } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
+        await fetch('/api/confirm-booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            bookingId: data.bookingId,
+            paymentIntentId: result.paymentIntent.id
+          })
+        });
+        alert('Pagamento completato! Riceverai conferma via email con le istruzioni per la consulenza.');
+        window.location.href = '/grazie.html';
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert('Errore durante il processo di pagamento. Riprova più tardi.');
+    }
+  });
+
+  card.on('change', function (event) {
+    if (event.error) cardErrors.textContent = event.error.message;
+    else cardErrors.textContent = '';
+  });
+
+  /* --------------------------
+     LINK DIRETTI DA ALTRE PAGINE
+     -------------------------- */
+  // Esempi di link esterni:
+  // index.html?sezione=contatti
+  // index.html?sezione=mappa
+  // index.html?sezione=consulenza
+  const params = new URLSearchParams(window.location.search);
+  const sezione = params.get('sezione');
+  if (sezione && ['contatti', 'mappa', 'consulenza'].includes(sezione)) {
+    mostraSezione(sezione);
+  } else {
+    mostraSezione('benvenuto');
+  }
+</script>
+</body>
+</html>
